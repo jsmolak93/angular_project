@@ -1,0 +1,92 @@
+<!-- 
+Authors: Russell Bisker, Jonahtan Hus, John Smolak
+This file defines the student survey form that collects user input through various fields, including text inputs, checkboxes, radio buttons, a dropdown menu, 
+and a textarea. It uses Angular's two-way data binding with ngModel to bind form inputs to a formData object and handles form submission via an onSubmit function 
+while validating required fields.
+-->
+
+
+<h2>Student Survey</h2>
+<form (ngSubmit)="onSubmit(surveyForm)" #surveyForm="ngForm">
+  <!-- Text Fields -->
+  <div>
+    <label for="firstName">First Name:<span class="required-label"> (required)</span></label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
+  </div>
+  <div>
+    <label for="lastName">Last Name:<span class="required-label"> (required)</span></label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required>
+  </div>
+  <div>
+    <label for="address">Street Address:<span class="required-label"> (required)</span></label>
+    <input type="text" id="address" name="address" [(ngModel)]="formData.address" required>
+  </div>
+  <div>
+    <label for="city">City:<span class="required-label"> (required)</span></label>
+    <input type="text" id="city" name="city" [(ngModel)]="formData.city" required>
+  </div>
+  <div>
+    <label for="state">State:<span class="required-label"> (required)</span></label>
+    <input type="text" id="state" name="state" [(ngModel)]="formData.state" required>
+  </div>
+  <div>
+    <label for="zipcode">Zip:<span class="required-label"> (required)</span></label>
+    <input type="text" id="zipcode" name="zipcode" [(ngModel)]="formData.zipcode" required>
+  </div>
+  <div>
+    <label for="telephone">Telephone:<span class="required-label"> (required)</span></label>
+    <input type="tel" id="telephone" name="telephone" [(ngModel)]="formData.telephone" required>
+  </div>
+  <div>
+    <label for="email">Email:<span class="required-label"> (required)</span></label>
+    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+  </div>
+  <div>
+    <label for="survey_date">Date of Survey:<span class="required-label"> (required)</span></label>
+    <input type="date" id="survey_date" name="survey_date" [(ngModel)]="formData.survey_date" required>
+  </div>
+
+  <!-- Checkboxes -->
+  <div>
+    <label>What did you like most about the campus?<p></label>
+    <div *ngFor="let option of campusLikes" style="display: inline-block; margin-right: 10px;">
+      <input
+      type="checkbox"
+      [id]="'likes-' + option"
+      name = "likes"
+      [value]="option"
+      [checked]="formData.likes.includes(option)"
+      (change)="onCheckboxChange($event, option)"
+    >
+    {{ option }}
+    </div>
+  </div>
+
+  <!-- Radio Buttons -->
+  <div>
+    <label>How did you become interested in the university?<span class="required-label"> (required)</span><p></label>
+    <div *ngFor="let source of interestSources" style="display: inline-block; margin-right: 10px;">
+      <input type="radio" id="interest" name="interest" [value]="source" [(ngModel)]="formData.interest" required>{{ source }}
+    </div>
+  </div>
+
+  <!-- Dropdown -->
+  <div>
+    <label for="recommendation">Likelihood of recommending:<span class="required-label"> (required)</span></label>
+    <select id="recommendation" name="recommendation"  [(ngModel)]="formData.recommendation" required>
+      <option value="Very Likely">Very Likely</option>
+      <option value="Likely">Likely</option>
+      <option value="Unlikely">Unlikely</option>
+    </select>
+  </div>
+
+  <!-- Comments -->
+  <div>
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" name="comments" [(ngModel)]="formData.comments"></textarea>
+  </div>
+
+  <!-- Buttons -->
+  <button type="submit" [disabled]="!surveyForm.form.valid">Submit</button>
+  <button type="button" (click)="onCancel()">Clear</button>
+</form>

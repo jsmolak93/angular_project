@@ -1,0 +1,20 @@
+<!-- 
+Authors: Russell Bisker, Jonahtan Hus, John Smolak
+This template displays the list of submitted surveys using the *ngFor directive. It shows the survey's ID, first name, and last name, with options 
+to edit or delete each survey via buttons. If no surveys are available, a message indicating "No surveys found" is displayed.
+-->
+
+<div *ngIf="surveys.length > 0" class="survey-container">
+    <h2>Submitted Surveys</h2>
+    <ul class="survey-list">
+      <li *ngFor="let survey of surveys">
+        ID: {{survey.id}} {{ survey.firstName }} {{ survey.lastName }}
+        <button (click)="onEdit(survey.id)">Edit</button>
+        <button (click)="onDelete(survey.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="surveys.length === 0">
+    <p>No surveys found.</p>
+</div>

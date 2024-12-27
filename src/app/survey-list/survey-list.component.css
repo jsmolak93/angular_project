@@ -1,0 +1,26 @@
+/* 
+Authors: Russell Bisker, Jonathan Hus, John Smolak
+This CSS file centers the .survey-container in the middle of the screen and styles its content. It also formats the .survey-list controlled width, padding, and 
+spacing to ensure readability.
+*/
+.survey-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers the content horizontally */
+} 
+
+.survey-container h2 {
+    margin-bottom: 10px;  /* Decrease space below the h2 */
+}
+
+/* Style for the list */
+.survey-list {
+    padding-left: 20px;   /* Adjusts padding for bullet spacing */
+    text-align: left;     /* Left-aligns text within list items */
+    width: 50%;          /* Full width within the container */
+    max-width: 500px;     /* Sets a max width to control the list width */
+    margin-top: 0;  
+}
+.survey-list button {
+    margin-left: 8px;
+}

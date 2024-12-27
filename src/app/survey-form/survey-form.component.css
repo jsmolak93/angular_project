@@ -1,0 +1,68 @@
+/*
+Authors: Russell Bisker, Jonahtan Hus, John Smolak
+This CSS file provides styling for the survey form. It styles form elements such as inputs, labels, buttons, and headers, emphasizing accessibility and 
+usability, including visual cues for required fields and disabled buttons.
+*/
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+  }
+  
+  button {
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  button[type="button"] {
+    background-color: #f44336;
+    color: white;
+  }
+
+  button[disabled], .disabled-button {
+    background-color: #ccc;  /* Light grey background */
+    cursor: not-allowed;     /* Change cursor to indicate that the button is disabled */
+    color: #666;             /* Change text color */
+  }
+  
+  .required-label {
+    font-style: italic;
+    font-size: small;
+  }
+  

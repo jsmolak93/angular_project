@@ -1,0 +1,18 @@
+<!--
+Authors: Russell Bisker, Jonathan Hus, John Smolak
+This template serves as the main layout for the application, displaying a header with the project title and author names, navigation buttons to submit 
+a new survey or view the list of surveys, and a router-outlet to dynamically inject components based on the current route.
+-->
+
+<div style="text-align:center">
+  <h1 style="margin-bottom: 3px">GMU CS Potential Student Survey Portal</h1>
+  <h4 style="margin-top: 3px; margin-bottom: 8px"><i>A SWE 642 HW3 Project by Russell Bisker, Jonathan Hus & John Smolak</i></h4>
+
+  <!-- Buttons to navigate to the different views -->
+  <button (click)="router.navigate(['/submit'])" style="margin: 5px;">Submit New Survey</button>
+  <button (click)="router.navigate(['/surveys'])" style="margin: 5px;">List All Surveys</button>
+  <button (click)="clearForm()" style="margin: 5px;">Reset</button>
+
+  <!-- The router-outlet is where routed components are injected -->
+  <router-outlet></router-outlet>
+</div>
